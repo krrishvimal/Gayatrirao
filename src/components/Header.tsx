@@ -1,11 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Header() {
   const [activeSection, setActiveSection] = useState("home");
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isBadgeHovered, setIsBadgeHovered] = useState(false);
 
   // Monitor scroll transitions to toggle active nav state & scrolled state
   useEffect(() => {
@@ -76,63 +77,48 @@ export default function Header() {
           <span className="h-1 w-1 rounded-full bg-[#8CC0EB] group-hover:scale-125 transition-transform duration-300" />
         </div>
 
-        {/* Creative Capabilities Micro-Icons (Bespoke premium capabilities pill) */}
-        <div className="hidden lg:flex items-center gap-6 border-l border-white/[0.08] pl-6 select-none">
-          <div className="flex items-center gap-4 text-white/40">
+        {/* Creative Availability Action (Concept 2 - high-end conversions) */}
+        <div className="hidden lg:flex items-center border-l border-white/[0.08] pl-6 select-none">
+          <motion.div
+            onMouseEnter={() => setIsBadgeHovered(true)}
+            onMouseLeave={() => setIsBadgeHovered(false)}
+            onClick={() => handleNavClick("commission", "commission")}
+            className="flex items-center gap-2.5 px-3.5 py-1.5 rounded-full border border-white/[0.05] bg-white/[0.02] hover:bg-white/[0.06] hover:border-white/[0.12] cursor-pointer transition-all duration-300"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            {/* Glowing Active Status Dot */}
+            <span className="h-1.5 w-1.5 rounded-full bg-[#10B981] shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse" />
             
-            {/* 1. Custom Apparel Capability (Shirt) */}
-            <motion.div 
-              title="Custom Hand-Painted Apparel"
-              animate={{ y: [0, -3, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              whileHover={{ scale: 1.25, rotate: -6, color: "#8CC0EB" }}
-              className="cursor-pointer transition-colors duration-300 flex items-center justify-center"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-                <path d="M20.38 3.46L16 6V4a2 2 0 0 0-2-2H10a2 2 0 0 0-2 2v2L3.62 3.46a2 2 0 0 0-2.41.9L0 8l4 4v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8l4-4-1.21-3.64a2 2 0 0 0-2.41-.9z" />
-              </svg>
-            </motion.div>
-
-            {/* Divider */}
-            <span className="h-1 w-1 rounded-full bg-white/10" />
-
-            {/* 2. Custom Footwear/Sneaker Capability (Inline Sneaker Vector Outline) */}
-            <motion.div 
-              title="Bespoke Collectible Sneakers"
-              animate={{ y: [0, -4, 0] }}
-              transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
-              whileHover={{ scale: 1.25, rotate: 8, color: "#8CC0EB" }}
-              className="cursor-pointer transition-colors duration-300 flex items-center justify-center"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
-                <path d="M3 16h18a1 1 0 0 0 1-1c0-2-1-3.5-4-4.5l-4-3h-4L6 11l-3 1v4z" />
-                <path d="M10 8h2M12 10h2" />
-                <path d="M3 14.5h18" />
-              </svg>
-            </motion.div>
-
-            {/* Divider */}
-            <span className="h-1 w-1 rounded-full bg-white/10" />
-
-            {/* 3. Custom Fine Art Canvas Capability (Artist Palette Outline) */}
-            <motion.div 
-              title="Archival Fine Art Canvases"
-              animate={{ rotate: [0, 4, -4, 0] }}
-              transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut" }}
-              whileHover={{ scale: 1.25, color: "#8CC0EB" }}
-              className="cursor-pointer transition-colors duration-300 flex items-center justify-center"
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-4.5 h-4.5">
-                <circle cx="12" cy="12" r="10" />
-                <circle cx="8" cy="9" r="1.5" fill="currentColor" />
-                <circle cx="12" cy="7" r="1.5" fill="currentColor" />
-                <circle cx="16" cy="9" r="1.5" fill="currentColor" />
-                <circle cx="15" cy="14" r="1.5" fill="currentColor" />
-                <circle cx="9" cy="14" r="1" fill="currentColor" />
-              </svg>
-            </motion.div>
-
-          </div>
+            {/* Morphing Text Container */}
+            <span className="font-mono text-[8px] tracking-[0.18em] font-bold text-white/50 uppercase transition-colors duration-300 flex items-center min-w-[130px] justify-center">
+              <AnimatePresence mode="wait">
+                {!isBadgeHovered ? (
+                  <motion.span
+                    key="status-open"
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.15 }}
+                    className="flex items-center gap-1"
+                  >
+                    STUDIO STATUS: <span className="text-white/80">OPEN</span>
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key="status-inquire"
+                    initial={{ opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -4 }}
+                    transition={{ duration: 0.15 }}
+                    className="text-[#8CC0EB] flex items-center gap-1"
+                  >
+                    BOOK A COMMISSION <span className="translate-x-0.5">➔</span>
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </span>
+          </motion.div>
         </div>
 
         {/* Luxury Capsule Navigation Bar */}

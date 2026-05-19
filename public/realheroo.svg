@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <!-- French Ultramarine Accent Gradient -->
+    <linearGradient id="ultramarine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#002FA7" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#001861" stop-opacity="0.6"/>
+    </linearGradient>
+    
+    <!-- Clean Shadow Filter for Depth -->
+    <filter id="shadow-clean" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#002FA7" flood-opacity="0.06"/>
+    </filter>
+
+    <!-- Warm Sand/Linen Leather Panels -->
+    <linearGradient id="panel-base" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#faf9f6" stop-opacity="0.95"/>
+    </linearGradient>
+    <linearGradient id="panel-shade" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#f2f1ec" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- BACKGROUND DECORATIVE ORBITS -->
+  <g opacity="0.12">
+    <circle cx="400" cy="250" r="220" fill="none" stroke="url(#ultramarine)" stroke-width="0.75" stroke-dasharray="8 4"/>
+    <circle cx="400" cy="250" r="170" fill="none" stroke="url(#ultramarine)" stroke-width="0.5"/>
+  </g>
+
+  <!-- MAIN SNEAKER GROUP -->
+  <g filter="url(#shadow-clean)" transform="translate(100, 50)">
+    
+    <!-- SOLE / OUTSOLE -->
+    <!-- Midsole Base -->
+    <path d="M 70,350 L 80,360 L 510,350 L 510,320 Q 510,310 490,305 L 430,302 L 350,303 L 260,308 L 170,318 L 100,332 Z" fill="url(#panel-shade)" stroke="#18181b" stroke-width="1.2" stroke-linejoin="round"/>
+    
+    <!-- Outsole Bottom Tread -->
+    <path d="M 70,350 Q 80,362 100,363 L 490,354 Q 510,352 510,350 L 505,348 L 75,348 Z" fill="#e4e2dd" stroke="#18181b" stroke-width="0.8"/>
+    
+    <!-- Midsole Stitching Line -->
+    <path d="M 85,345 L 498,338" fill="none" stroke="#a1a1aa" stroke-width="0.8" stroke-dasharray="3 3"/>
+    
+    <!-- "AIR" Emboss Effect -->
+    <text x="410" y="342" font-family="'Inter', sans-serif" font-size="16" font-weight="900" fill="#a1a1aa" letter-spacing="2" opacity="0.8">AIR</text>
+    <line x1="390" y1="330" x2="390" y2="346" stroke="#a1a1aa" stroke-width="1.2" opacity="0.8"/>
+
+    <!-- TOE CAP / VAMP -->
+    <!-- Toe Box Top -->
+    <path d="M 72,330 Q 60,300 85,275 Q 110,250 160,252 L 180,270 L 160,300 L 100,328 Z" fill="url(#panel-base)" stroke="#18181b" stroke-width="1.2"/>
+    <!-- Perforation Dots -->
+    <g fill="#a1a1aa" opacity="0.6">
+      <circle cx="110" cy="285" r="2.5"/>
+      <circle cx="120" cy="282" r="2.5"/>
+      <circle cx="130" cy="280" r="2.5"/>
+      <circle cx="115" cy="295" r="2.5"/>
+      <circle cx="125" cy="292" r="2.5"/>
+      <circle cx="135" cy="290" r="2.5"/>
+      <circle cx="145" cy="288" r="2.5"/>
+      <circle cx="120" cy="305" r="2.5"/>
+      <circle cx="130" cy="302" r="2.5"/>
+      <circle cx="140" cy="300" r="2.5"/>
+    </g>
+
+    <!-- MUDGUARD OVERLAY -->
+    <path d="M 72,330 Q 60,290 90,265 L 115,260 Q 120,290 145,315 L 100,332 Z" fill="url(#panel-shade)" stroke="#18181b" stroke-width="1.2"/>
+
+    <!-- QUARTER PANEL (Side Mid) -->
+    <path d="M 160,252 Q 220,255 260,220 L 320,225 L 340,303 L 260,308 L 160,300 Z" fill="url(#panel-base)" stroke="#18181b" stroke-width="1.2"/>
+
+    <!-- HEEL COUNTER / HEEL CAP -->
+    <path d="M 340,303 L 320,225 L 380,200 Q 420,180 440,180 Q 480,180 490,240 Q 500,290 490,305 L 340,303 Z" fill="url(#panel-shade)" stroke="#18181b" stroke-width="1.2"/>
+    <!-- Heel Tab -->
+    <path d="M 440,180 Q 460,140 480,150 Q 495,165 488,195 Z" fill="url(#ultramarine)" stroke="#18181b" stroke-width="1.2"/>
+
+    <!-- EYESTAY & LACES -->
+    <!-- Eyestay Panel -->
+    <path d="M 160,252 L 205,215 L 290,175 Q 310,170 315,185 L 260,220 Q 220,255 160,252 Z" fill="url(#panel-shade)" stroke="#18181b" stroke-width="1.2"/>
+    <!-- Eyelets -->
+    <g fill="#71717a">
+      <circle cx="185" cy="235" r="3"/>
+      <circle cx="205" cy="218" r="3"/>
+      <circle cx="225" cy="202" r="3"/>
+      <circle cx="245" cy="190" r="3"/>
+      <circle cx="265" cy="182" r="3"/>
+      <circle cx="285" cy="177" r="3"/>
+    </g>
+    <!-- Shoelaces -->
+    <path d="M 185,235 L 215,225 M 205,218 L 235,208 M 225,202 L 255,192 M 245,190 L 275,180 M 265,182 L 295,172" stroke="#ffffff" stroke-width="4.5" stroke-linecap="round" fill="none" opacity="0.95"/>
+    <path d="M 185,235 L 215,225 M 205,218 L 235,208 M 225,202 L 255,192 M 245,190 L 275,180 M 265,182 L 295,172" stroke="#e4e2dd" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+
+    <!-- TONGUE -->
+    <path d="M 205,215 Q 240,140 280,125 Q 305,115 315,140 L 290,175 Z" fill="url(#panel-base)" stroke="#18181b" stroke-width="1.2"/>
+    <path d="M 270,122 Q 285,110 300,120" stroke="url(#ultramarine)" stroke-width="3" fill="none"/>
+
+    <!-- THE SWOOSH (Iconic Minimal Outlines) -->
+    <path d="M 190,265 Q 230,285 300,245 Q 360,210 440,178 Q 442,185 435,195 Q 380,240 310,280 Q 250,300 190,265 Z" fill="url(#panel-base)" stroke="#18181b" stroke-width="1.8" stroke-linejoin="round"/>
+    
+    <!-- DOUBLE STITCHING DETAILS -->
+    <path d="M 168,260 Q 215,263 250,230" fill="none" stroke="#a1a1aa" stroke-width="0.75" stroke-dasharray="2 2"/>
+    <path d="M 330,300 L 312,230" fill="none" stroke="#a1a1aa" stroke-width="0.75" stroke-dasharray="2 2"/>
+    
+  </g>
+
+  <!-- LUXURY EDITORIAL WATERMARK -->
+  <text x="750" y="470" text-anchor="end" font-family="'Bodoni Moda', serif" font-size="10" font-weight="bold" fill="#002FA7" letter-spacing="4" opacity="0.4">GAYATRI RAO // STUDIO CANVAS</text>
+</svg>

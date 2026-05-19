@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="100%" height="100%">
+  <defs>
+    <!-- French Ultramarine Paint Gradient -->
+    <linearGradient id="bag-ultra" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#001861"/>
+      <stop offset="50%" stop-color="#002FA7"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+
+    <!-- Warm Sand / Alabaster Leather Body Gradient -->
+    <linearGradient id="leather-base" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/> <!-- Clean white leather -->
+      <stop offset="50%" stop-color="#faf9f6"/> <!-- Luminous sand -->
+      <stop offset="100%" stop-color="#eae7e0"/> <!-- Neutral shade -->
+    </linearGradient>
+
+    <!-- Satin Gloss Shine Layer -->
+    <linearGradient id="satin-gloss" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#002FA7" stop-opacity="0.04"/>
+    </linearGradient>
+
+    <!-- Glowing Blue Filter -->
+    <filter id="ultra-glisten" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#002FA7" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- BACKGROUND LUXURY GEOMETRY -->
+  <g opacity="0.1">
+    <circle cx="400" cy="300" r="260" fill="none" stroke="url(#bag-ultra)" stroke-width="0.75" stroke-dasharray="12 6"/>
+    <circle cx="400" cy="300" r="200" fill="none" stroke="url(#bag-ultra)" stroke-width="0.5"/>
+  </g>
+
+  <!-- LUXURY HANDBAG SYSTEM -->
+  <g transform="translate(180, 70)" filter="url(#ultra-glisten)">
+    
+    <!-- BAG HANDLES -->
+    <!-- Front Handle -->
+    <path d="M 115,130 C 115,30 325,30 325,130" fill="none" stroke="url(#leather-base)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 115,130 C 115,30 325,30 325,130" fill="none" stroke="#002FA7" stroke-width="1" stroke-dasharray="3 3"/>
+    
+    <!-- Handle Ring Connectors (Gold D-Rings) -->
+    <path d="M 105,120 L 125,120 L 120,140 L 110,140 Z" fill="#002FA7"/>
+    <path d="M 315,120 L 335,120 L 330,140 L 320,140 Z" fill="#002FA7"/>
+
+    <!-- MAIN TOTE BAG BODY -->
+    <!-- Outer Shell Contour -->
+    <path d="M 80,140 L 360,140 L 400,420 L 40,420 Z" fill="url(#leather-base)" stroke="#18181b" stroke-width="1.5" stroke-linejoin="round"/>
+    
+    <!-- Satin Gloss Layer -->
+    <path d="M 80,140 L 360,140 L 400,420 L 40,420 Z" fill="url(#satin-gloss)"/>
+    
+    <!-- Ultramarine Double Stitching along borders -->
+    <path d="M 83,145 L 357,145 L 393,415 L 47,415 Z" fill="none" stroke="#002FA7" stroke-width="0.8" stroke-dasharray="3 3" opacity="0.8"/>
+
+    <!-- Side Panel Crease lines -->
+    <path d="M 130,140 L 110,420" stroke="#eae7e0" stroke-width="2"/>
+    <path d="M 310,140 L 330,420" stroke="#eae7e0" stroke-width="2"/>
+
+    <!-- FRONT PANEL POP-ART ARTWORK (French Ultramarine & Lavender Florals) -->
+    <g transform="translate(220, 280)">
+      
+      <!-- Retro Daisy Flower 1 (Large - Center Left) -->
+      <g transform="translate(-60, -30)">
+        <!-- Petals -->
+        <circle cx="0" cy="-25" r="14" fill="#002FA7" opacity="0.95"/> 
+        <circle cx="0" cy="25" r="14" fill="#002FA7" opacity="0.95"/>
+        <circle cx="-25" cy="0" r="14" fill="#002FA7" opacity="0.95"/>
+        <circle cx="25" cy="0" r="14" fill="#002FA7" opacity="0.95"/>
+        <circle cx="-18" cy="-18" r="14" fill="#002FA7"/>
+        <circle cx="18" cy="18" r="14" fill="#002FA7"/>
+        <circle cx="18" cy="-18" r="14" fill="#002FA7"/>
+        <circle cx="-18" cy="18" r="14" fill="#002FA7"/>
+        <!-- Center -->
+        <circle cx="0" cy="0" r="14" fill="#c084fc"/>
+        <circle cx="0" cy="0" r="8" fill="#ffffff" opacity="0.7"/>
+      </g>
+
+      <!-- Retro Daisy Flower 2 (Medium - Upper Right) -->
+      <g transform="translate(60, -60)">
+        <circle cx="0" cy="-18" r="10" fill="#c084fc" opacity="0.9"/> 
+        <circle cx="0" cy="18" r="10" fill="#c084fc" opacity="0.9"/>
+        <circle cx="-18" cy="0" r="10" fill="#c084fc" opacity="0.9"/>
+        <circle cx="18" cy="0" r="10" fill="#c084fc" opacity="0.9"/>
+        <circle cx="-13" cy="-13" r="10" fill="#c084fc"/>
+        <circle cx="13" cy="13" r="10" fill="#c084fc"/>
+        <circle cx="0" cy="0" r="10" fill="#002FA7"/>
+      </g>
+
+      <!-- Retro Daisy Flower 3 (Small - Lower Center) -->
+      <g transform="translate(10, 40)">
+        <circle cx="0" cy="-12" r="7" fill="#002FA7" opacity="0.95"/> 
+        <circle cx="0" cy="12" r="7" fill="#002FA7" opacity="0.95"/>
+        <circle cx="-12" cy="0" r="7" fill="#002FA7" opacity="0.95"/>
+        <circle cx="12" cy="0" r="7" fill="#002FA7" opacity="0.95"/>
+        <circle cx="0" cy="0" r="6" fill="#ffffff"/>
+      </g>
+
+      <!-- Elegant Leaves & Stems (Ultramarine Vector Lines) -->
+      <path d="M -60,-30 Q -20,-70 60,-60" fill="none" stroke="#002FA7" stroke-width="2.5" stroke-linecap="round"/>
+      <path d="M -60,-30 Q -30,20 10,40" fill="none" stroke="#002FA7" stroke-width="2" stroke-linecap="round"/>
+      
+      <!-- Leaf 1 -->
+      <path d="M 0,-52 Q 15,-65 25,-48 Q 10,-42 0,-52 Z" fill="#002FA7"/>
+      <!-- Leaf 2 -->
+      <path d="M -20,12 Q -35,25 -42,10 Q -27,5 -20,12 Z" fill="#c084fc"/>
+
+      <!-- Splatters & Flakes Overlay -->
+      <g fill="#002FA7">
+        <circle cx="-110" cy="-10" r="3"/>
+        <circle cx="-100" cy="-20" r="1.5"/>
+        <circle cx="110" cy="-30" r="4"/>
+        <circle cx="95" cy="-20" r="2"/>
+        <circle cx="70" cy="70" r="3"/>
+      </g>
+
+    </g>
+
+    <!-- GOLD METAL BUCKLES (Decorative Front Clasps) -->
+    <path d="M 180,140 L 260,140 L 250,165 L 190,165 Z" fill="#eae7e0" stroke="#18181b" stroke-width="1"/>
+    <path d="M 210,165 L 230,165 L 225,185 L 215,185 Z" fill="#002FA7"/>
+
+  </g>
+
+  <!-- LUXURY EDITORIAL WATERMARK -->
+  <text x="750" y="560" text-anchor="end" font-family="'Bodoni Moda', serif" font-size="10" font-weight="bold" fill="#002FA7" letter-spacing="4" opacity="0.8">GAYATRI RAO // LUNA FLORA TOTE</text>
+</svg>

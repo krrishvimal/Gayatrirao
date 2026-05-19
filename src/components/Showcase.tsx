@@ -81,25 +81,30 @@ export default function Showcase() {
 
       // Create a safely scoped GSAP context to prevent React DOM lifecycle crashes
       const ctx = gsap.context(() => {
-        const timeline = gsap.timeline({
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: "top top",
-            end: `+=${EXHIBITION_PIECES.length * 800}`, // Scroll distance to complete the gallery
-            scrub: true,
-            pin: true, // Pin the container directly
-            anticipatePin: 1
-          }
-        });
+        let mm = gsap.matchMedia();
 
-        // Animate opacity of each overlapping DOM piece node 
-        EXHIBITION_PIECES.forEach((_, i) => {
-          if (i === 0) return; // First is already visible initially
-          
-          // At progress step, fade out previous, fade in current smoothly
-          timeline
-            .to(`.piece-${i - 1}`, { opacity: 0, duration: 0.5, ease: "power2.inOut" }, `step${i}`)
-            .fromTo(`.piece-${i}`, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, `step${i}`)
+        // Pin and fade ONLY on screen sizes 1024px and wider (desktops & large landscape tablets)
+        mm.add("(min-width: 1024px)", () => {
+          const timeline = gsap.timeline({
+            scrollTrigger: {
+              trigger: containerRef.current,
+              start: "top top",
+              end: `+=${EXHIBITION_PIECES.length * 800}`, // Scroll distance to complete the gallery
+              scrub: true,
+              pin: true, // Pin the container directly
+              anticipatePin: 1
+            }
+          });
+
+          // Animate opacity of each overlapping DOM piece node 
+          EXHIBITION_PIECES.forEach((_, i) => {
+            if (i === 0) return; // First is already visible initially
+            
+            // At progress step, fade out previous, fade in current smoothly
+            timeline
+              .to(`.piece-${i - 1}`, { opacity: 0, duration: 0.5, ease: "power2.inOut" }, `step${i}`)
+              .fromTo(`.piece-${i}`, { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "power2.inOut" }, `step${i}`)
+          });
         });
       }, containerRef);
 
@@ -110,7 +115,7 @@ export default function Showcase() {
   }, []);
 
   return (
-    <div ref={containerRef} id="showcase" className="relative bg-background z-20 select-none w-full h-screen overflow-hidden">
+    <div ref={containerRef} id="showcase" className="relative bg-background z-20 select-none w-full h-auto lg:h-screen overflow-visible lg:overflow-hidden py-16 lg:py-0">
         
         {/* Global Grunge overlay for entire pinned section */}
         <div className="absolute inset-0 pointer-events-none opacity-[0.15] mix-blend-overlay z-0" style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/dust.png')" }} />
@@ -118,7 +123,7 @@ export default function Showcase() {
         {EXHIBITION_PIECES.map((piece, i) => (
           <div 
             key={piece.id} 
-            className={`piece-${i} absolute inset-0 w-full h-full flex flex-col justify-start px-6 md:px-16 lg:px-24 pt-[120px] lg:pt-[160px] pb-12 lg:pb-16 z-10 ${i !== 0 ? 'opacity-0' : 'opacity-100'}`}
+            className={`piece-${i} relative lg:absolute lg:inset-0 w-full h-auto lg:h-full flex flex-col justify-start px-6 md:px-16 lg:px-24 pt-8 lg:pt-[160px] pb-8 lg:pb-16 z-10 opacity-100 ${i !== 0 ? 'lg:opacity-0' : 'lg:opacity-100'} mb-16 lg:mb-0`}
           >
             <div className="w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center lg:items-start justify-between gap-8 lg:gap-12 h-auto relative">
               
@@ -153,7 +158,7 @@ export default function Showcase() {
               <div className="flex w-full lg:w-[55%] h-[350px] sm:h-[450px] lg:h-[500px] relative items-center justify-center pointer-events-none select-none z-10 overflow-visible mt-4 lg:mt-0">
                 
                 {/* Responsive Scale Wrapper */}
-                <div className="absolute inset-0 flex items-center justify-center scale-[0.7] sm:scale-[0.85] lg:scale-100 origin-top lg:origin-center transition-transform duration-300">
+                <div className="absolute inset-0 flex items-center justify-center scale-[0.58] sm:scale-[0.8] lg:scale-100 origin-top lg:origin-center transition-transform duration-300">
                   
                   {/* Back Cardboard Base */}
                   <div className="absolute w-[440px] h-[480px] bg-[#FFEBCC] rotate-[-2deg] border border-[#3B72A6]/10 shadow-2xl rounded-sm" />
@@ -225,15 +230,21 @@ export default function Showcase() {
             </div>
 
             {/* Elevated Scroll Instruction Area (Anchored to exact viewport bottom) */}
-            <div className="absolute bottom-12 lg:bottom-16 left-6 md:left-16 lg:left-24 z-30">
+            <div className="relative lg:absolute bottom-0 lg:bottom-16 left-0 lg:left-24 z-30 mt-8 lg:mt-0">
               {i === EXHIBITION_PIECES.length - 1 ? (
-                <div className="relative flex items-center gap-4 font-bold text-[#1A2333]/60 text-[9.5px] tracking-[0.3em] uppercase group cursor-pointer w-max select-none">
+                <div 
+                  onClick={() => {
+                    const commission = document.getElementById("commission");
+                    if (commission) commission.scrollIntoView({ behavior: "smooth" });
+                  }}
+                  className="relative flex items-center gap-4 font-bold text-[#1A2333]/60 hover:text-[#1A2333] text-[9.5px] tracking-[0.3em] uppercase group cursor-pointer w-max select-none pointer-events-auto"
+                >
                   <span className="group-hover:text-[#1A2333] transition-colors duration-300">ENTER COMMISSION DESK</span>
                   <span className="text-lg group-hover:translate-x-2 transition-transform duration-300">→</span>
                   <div className="absolute -bottom-3 left-0 w-full h-[1px] bg-[#1A2333]/30 rotate-[-1deg]" />
                 </div>
               ) : (
-                <div className="relative flex items-center gap-4 font-bold text-[#1A2333]/60 text-[9.5px] tracking-[0.3em] uppercase w-max select-none animate-pulse opacity-70">
+                <div className="hidden lg:flex items-center gap-4 font-bold text-[#1A2333]/60 text-[9.5px] tracking-[0.3em] uppercase w-max select-none animate-pulse opacity-70">
                   <span>SCROLL TO EXPLORE ARCHIVE</span>
                   <span className="text-lg">↓</span>
                 </div>

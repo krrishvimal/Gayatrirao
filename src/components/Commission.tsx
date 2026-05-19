@@ -59,11 +59,11 @@ export default function Commission() {
   return (
     <section 
       id="commission" 
-      className="relative min-h-screen w-full bg-[#FFEBCC] flex flex-col justify-between px-6 md:px-12 lg:px-20 py-24 border-t border-[#1A2333]/[0.08] z-20 overflow-hidden select-none"
+      className="relative min-h-screen w-full bg-[#FFEBCC] flex flex-col justify-between px-6 md:px-12 lg:px-20 py-12 lg:py-24 border-t border-[#1A2333]/[0.08] z-20 overflow-hidden select-none"
     >
 
       {/* 2. THEATRICAL SPLIT-SCREEN CONSULTING DESK */}
-      <div className="w-full max-w-7xl mx-auto flex-grow grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10 py-12">
+      <div className="w-full max-w-7xl mx-auto flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 py-4 lg:py-12">
         
         {/* LEFT COLUMN: ACTIVE MINIMAL QUESTIONNAIRE FORM (Exits with a cinematic blur-defocus) */}
         <div className="lg:col-span-6 w-full relative">

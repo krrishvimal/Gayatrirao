@@ -134,7 +134,7 @@ export default function Hero() {
       id="hero"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className="relative h-screen w-full bg-transparent overflow-hidden px-6 md:px-12 lg:px-20 py-8 select-none z-20 flex flex-col justify-between"
+      className="relative min-h-screen lg:h-screen w-full bg-transparent overflow-hidden px-6 md:px-12 lg:px-20 py-24 lg:py-8 select-none z-20 flex flex-col justify-between gap-12 lg:gap-0"
     >
       {/* NATIVE SVG FLUID DISPLACEMENT MORPH DEF */}
       {mounted && (
@@ -189,7 +189,7 @@ export default function Hero() {
       </div>
 
       {/* 🎭 LAYER 3: THE COLLECTIBLE CENTERPIECE (Massive Hanging Denim Jacket - z-index: 20) */}
-      <div className="absolute top-[8%] lg:top-[12%] bottom-0 right-[2%] lg:right-[3%] w-[90%] lg:w-[46vw] h-[75vh] lg:h-[78vh] my-auto flex items-center justify-center z-20 pointer-events-none select-none">
+      <div className="relative lg:absolute lg:top-[12%] lg:bottom-0 lg:right-[3%] w-full lg:w-[46vw] h-[40vh] sm:h-[48vh] lg:h-[78vh] my-auto flex items-center justify-center z-20 pointer-events-none select-none order-2 lg:order-none">
         <AnimatePresence>
           {stageArtwork && (
             <motion.div
@@ -253,8 +253,8 @@ export default function Hero() {
       {/* 🎭 LAYER 4: FOREGROUND TYPOGRAPHY & INTERACTIVE METADATA (Overlaps the image - z-index: 30) */}
       
       {/* Center Row: Editorial Title Layers */}
-      <div className="max-w-7xl w-full mx-auto flex-grow flex flex-col justify-center relative z-30 pointer-events-none select-none">
-        <div className="max-w-2xl w-full lg:w-[50%] flex flex-col gap-6 md:gap-8 justify-center h-full">
+      <div className="max-w-7xl w-full mx-auto flex-grow flex flex-col justify-center relative z-30 pointer-events-none select-none order-1 lg:order-none">
+        <div className="max-w-2xl w-full lg:w-[50%] flex flex-col gap-6 md:gap-8 justify-center h-auto lg:h-full py-4 lg:py-0">
           
           <div className="flex flex-col gap-1.5">
             {/* Live commission ticker */}
@@ -333,7 +333,7 @@ export default function Hero() {
       </div>
 
       {/* Bottom Row: Tactile scrolling CTA & counter */}
-      <div className="w-full flex justify-between items-center relative z-30 select-none pt-4 border-t border-[#1A2333]/[0.08] pointer-events-auto">
+      <div className="w-full flex flex-col sm:flex-row gap-6 sm:gap-0 justify-between items-center relative z-30 select-none pt-6 lg:pt-4 border-t border-[#1A2333]/[0.08] pointer-events-auto order-3 lg:order-none">
         <AnimatePresence>
           {stageForeground && (
             <motion.button

@@ -71,7 +71,7 @@ export default function Header() {
           onClick={() => handleNavClick("hero", "home")}
           className="flex items-center gap-2 cursor-pointer group"
         >
-          <span className="font-bodoni text-sm md:text-base font-bold tracking-[0.2em] text-[#FAF9F6] transition-colors duration-300 group-hover:text-[#8CC0EB]">
+          <span className="font-bodoni text-[10px] sm:text-sm md:text-base font-bold tracking-[0.2em] text-[#FAF9F6] transition-colors duration-300 group-hover:text-[#8CC0EB]">
             GAYATRI RAO
           </span>
           <span className="h-1 w-1 rounded-full bg-[#8CC0EB] group-hover:scale-125 transition-transform duration-300" />
@@ -122,7 +122,7 @@ export default function Header() {
         </div>
 
         {/* Luxury Capsule Navigation Bar */}
-        <nav className="flex items-center gap-1 bg-white/[0.03] border border-white/[0.05] p-1 rounded-full relative">
+        <nav className="flex items-center gap-0.5 sm:gap-1 bg-white/[0.03] border border-white/[0.05] p-0.5 sm:p-1 rounded-full relative">
           
           {(["home", "archive", "commission"] as const).map((item) => {
             const label = item === "home" ? "HOME" : item === "archive" ? "ARCHIVE" : "COMMISSION";
@@ -133,7 +133,7 @@ export default function Header() {
               <button
                 key={item}
                 onClick={() => handleNavClick(targetId, item)}
-                className="relative px-4 py-1.5 rounded-full text-[9px] font-extrabold tracking-[0.2em] uppercase transition-all duration-500 cursor-pointer select-none"
+                className="relative px-2.5 sm:px-4 py-1 sm:py-1.5 rounded-full text-[8.5px] sm:text-[9px] font-extrabold tracking-[0.15em] sm:tracking-[0.2em] uppercase transition-all duration-500 cursor-pointer select-none"
               >
                 {/* Active Indicator Slider Backing */}
                 {isAct && (
